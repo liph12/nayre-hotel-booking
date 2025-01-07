@@ -1,10 +1,29 @@
-import { Typography, Box, Button, Container, Divider } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Paper,
+  Grid2 as Grid,
+  Stack,
+} from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import NavBar from "../components/NavBar";
 import imageBg from "../assets/images/bg-image.jpg";
 import HomeBackgroundImage from "../components/HomeBackgroundImage";
+import BookingDateRangePicker from "../components/BookingDateRangePicker";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const [bookingDate, setBookingDate] = useState(null);
+
+  const handleBooking = () => {
+    navigate(`/rooms?dateRange=${bookingDate ?? ""}`);
+  };
+
   return (
     <>
       <NavBar>
@@ -31,15 +50,31 @@ export default function Home() {
               your perfect stay.
             </Typography>
             <Divider sx={{ my: 2 }} />
-            <Button
-              variant="contained"
-              color="warning"
-              size="large"
-              startIcon={<OpenInNewIcon />}
-              sx={{ borderRadius: 10, fontSize: 20, color: "#fff" }}
-            >
-              Book Now!
-            </Button>
+            <Grid container spacing={1}>
+              <Grid size={{ lg: 8, md: 8, xs: 12 }}>
+                <Paper
+                  sx={{
+                    p: 1,
+                    borderRadius: 10,
+                    width: "auto",
+                  }}
+                >
+                  <BookingDateRangePicker setBookingDate={setBookingDate} />
+                </Paper>
+              </Grid>
+              <Grid size={{ lg: 4, md: 4, xs: 12 }} sx={{ textAlign: "left" }}>
+                <Button
+                  variant="contained"
+                  color="warning"
+                  size="large"
+                  startIcon={<OpenInNewIcon />}
+                  sx={{ borderRadius: 10, fontSize: 25, color: "#fff", m: 0.5 }}
+                  onClick={handleBooking}
+                >
+                  Book now!
+                </Button>
+              </Grid>
+            </Grid>
           </Container>
         </Box>
       </NavBar>

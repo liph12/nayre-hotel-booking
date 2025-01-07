@@ -23,16 +23,16 @@ const navItems = [
     page: "Home",
   },
   {
+    path: "/rooms",
+    page: "Rooms",
+  },
+  {
     path: "/about",
     page: "About",
   },
   {
     path: "/contact",
     page: "Contact",
-  },
-  {
-    path: "/rooms",
-    page: "Rooms",
   },
 ];
 
