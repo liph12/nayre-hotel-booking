@@ -22,18 +22,18 @@ const navItems = [
     path: "/",
     page: "Home",
   },
-  {
-    path: "/rooms",
-    page: "Rooms",
-  },
-  {
-    path: "/about",
-    page: "About",
-  },
-  {
-    path: "/contact",
-    page: "Contact",
-  },
+  // {
+  //   path: "/rooms",
+  //   page: "Rooms",
+  // },
+  // {
+  //   path: "/about",
+  //   page: "About",
+  // },
+  // {
+  //   path: "/contact",
+  //   page: "Contact",
+  // },
 ];
 
 function NavBar({ window, children }) {
@@ -87,7 +87,7 @@ function NavBar({ window, children }) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            LUXURY
+            LUXURY HOTEL
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item, key) => (

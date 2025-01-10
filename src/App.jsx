@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Rooms from "./pages/Rooms";
+import AdminPanel from "./components/AdminPanel"; // Import Admin Panel
 
 function App() {
   const theme = createTheme({
@@ -29,6 +30,7 @@ function App() {
       },
     },
   });
+
   return (
     <ThemeProvider theme={theme}>
       <Routes>
@@ -36,6 +38,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/rooms" element={<Rooms />} />
+        <Route path="/admin" element={<AdminPanel />} />{" "}
+        {/* Add the Admin route */}
       </Routes>
     </ThemeProvider>
   );
